@@ -163,7 +163,7 @@ const GovernanceSimulator = () => {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
           <div className="max-w-2xl">
-            <h2 className="text-3xl md:text-4xl font-bold mb-2">
+            <h2 className="text-xl md:text-2xl font-bold mb-2">
               Automated Access Flow Demo
             </h2>
             <p className="text-muted-foreground text-base md:text-lg">
