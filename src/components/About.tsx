@@ -6,6 +6,7 @@ import { EditorView } from "@codemirror/view";
 
 const About = () => {
   const [tilt, setTilt] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
+
   const [code, setCode] = useState<string>(
 `const aboutMe = {
   name: "Sana Alia",
@@ -65,30 +66,59 @@ console.log("Hello from the mini terminal!");`
         <div className="grid gap-8 md:grid-cols-2 items-start">
 
           {/* Code Editor + Terminal */}
-          <div className="bg-background/80 rounded-2xl border border-border/40 shadow-lg overflow-hidden w-full max-w-full sm:max-w-md md:max-w-full">
+          <div className="
+            bg-background/80 rounded-2xl border border-border/40 shadow-lg overflow-hidden
+            w-full max-w-full sm:max-w-md md:max-w-full
+          ">
 
-            <CodeMirror
-              value={code}
-              height="220px"
-              theme={vscodeDark}
-              extensions={[
-                javascript({ jsx: true }),
-                EditorView.lineWrapping
-              ]}
-              onChange={(value) => setCode(value)}
-              basicSetup={{
-                lineNumbers: false,
-                foldGutter: false,
-                highlightActiveLine: false,
-              }}
-              className="text-xs sm:text-sm leading-tight"
-              style={{
-                fontSize: "12px",
-              }}
-            />
+            {/* Code Editor */}
+            <style>{`
+            /* Force smaller font on mobile screens only */
+            @media (max-width: 640px) {
+              .cm-editor, .cm-scroller {
+                font-size: 11px !important;
+                line-height: 1.2 !important;
+              }
+            }
+
+            /* Normal font size for tablet/desktop */
+            @media (min-width: 641px) {
+              .cm-editor, .cm-scroller {
+                font-size: 15px !important;
+                line-height: 1.35 !important;
+              }
+            }
+          `}</style>
+
+
+          <CodeMirror
+            value={code}
+            theme={vscodeDark}
+            extensions={[
+              javascript({ jsx: true }),
+              EditorView.lineWrapping
+            ]}
+            onChange={(value) => setCode(value)}
+            basicSetup={{
+              lineNumbers: false,
+              foldGutter: false,
+              highlightActiveLine: false,
+            }}
+            height="220px"
+            className="
+              leading-tight
+              text-[11px] 
+              sm:text-[13px] 
+              md:text-[15px]
+            "
+            style={{
+              fontSize: "inherit",
+            }}
+          />
+
 
             {/* Run Button */}
-            <div className="p-3 border-t border-border/40 flex justify-end">
+            <div className="p-2 sm:p-3 border-t border-border/40 flex justify-end">
               <button
                 onClick={handleRun}
                 className="
@@ -107,19 +137,21 @@ console.log("Hello from the mini terminal!");`
             </div>
 
             {/* Terminal */}
-            <div className="
-              bg-black text-green-400 
-              text-[10px] sm:text-xs 
-              p-2 sm:p-3 
-              h-28 sm:h-32 
-              overflow-auto font-mono 
-              border-t border-border/40
-            ">
+            <div
+              className="
+                bg-black text-green-400 
+                text-[10px] sm:text-xs 
+                p-2 sm:p-3 
+                h-28 sm:h-32 
+                overflow-auto font-mono 
+                border-t border-border/40
+              "
+            >
               {terminal || "💻 Terminal ready…"}
             </div>
           </div>
 
-          {/* About Me Tilt Card */}
+          {/* About Card with Tilt */}
           <div className="[perspective:1200px]">
             <div
               className="
@@ -137,9 +169,9 @@ console.log("Hello from the mini terminal!");`
               <div className="space-y-4 text-muted-foreground text-base md:text-lg leading-relaxed">
 
                 <p>
-                  I&apos;m a Computer Science student who loves working with data — whether it&apos;s
+                  I'm a Computer Science student who loves working with data — whether it's
                   analyzing, optimizing, protecting, or transforming it into something useful.
-                  I&apos;m passionate about{" "}
+                  I'm passionate about{" "}
                   <span className="text-foreground font-semibold">
                     data analysis, automation, digital transformation, and technology strategy
                   </span>.
@@ -147,12 +179,12 @@ console.log("Hello from the mini terminal!");`
 
                 <p>
                   I enjoy building efficient, reliable, and secure systems. I love turning complex
-                  problems into thoughtful, simple solutions that improve processes, strengthen governance,
+                  problems into simple, thoughtful solutions that improve processes, strengthen governance,
                   or enhance how teams interact with technology.
                 </p>
 
                 <p>
-                  When I&apos;m not coding or working with data, you&apos;ll find me playing badminton,
+                  When I'm not coding or working with data, you'll find me playing badminton,
                   reading, going for drives, or exploring the latest innovations in tech.
                 </p>
 
