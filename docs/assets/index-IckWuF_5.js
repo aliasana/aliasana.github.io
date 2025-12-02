@@ -530,36 +530,43 @@ console.log("Hello from the mini terminal!");`),[terminal,setTerminal]=reactExpo
               0 0 8px rgba(231,199,154,0.6),
               0 0 14px rgba(231,199,154,0.4);
           }
-        `}),jsxRuntimeExports.jsxs("div",{className:"max-w-2xl mx-auto text-center",children:[jsxRuntimeExports.jsx("h2",{className:"text-4xl font-bold mb-6",children:"Get In Touch"}),jsxRuntimeExports.jsx("p",{className:"text-lg text-muted-foreground mb-8",children:"Let’s connect! Whether it’s a new role, a project collaboration, or just a friendly hello, I’m always happy to hear from you."}),jsxRuntimeExports.jsxs("form",{onSubmit:a,className:"space-y-6 max-w-lg mx-auto mb-10",children:[jsxRuntimeExports.jsx("input",{type:"text",name:"name",required:!0,placeholder:"Your Name",className:`
-                w-full p-3 rounded-md
-                bg-[#2b2b2b] text-white
-                border border-gray-600
-                focus:border-[#e7c79a]
-                focus:ring-2 focus:ring-[#e7c79a]/40
-                transition-all outline-none
-              `}),jsxRuntimeExports.jsx("input",{type:"email",name:"email",required:!0,placeholder:"Your Email",className:`
-                w-full p-3 rounded-md
-                bg-[#2b2b2b] text-white
-                border border-gray-600
-                focus:border-[#e7c79a]
-                focus:ring-2 focus:ring-[#e7c79a]/40
-                transition-all outline-none
-              `}),jsxRuntimeExports.jsx("textarea",{name:"message",rows:5,required:!0,placeholder:"Your Message",className:`
-                w-full p-3 rounded-md
-                bg-[#2b2b2b] text-white
-                border border-gray-600
-                focus:border-[#e7c79a]
-                focus:ring-2 focus:ring-[#e7c79a]/40
-                transition-all outline-none
-              `}),jsxRuntimeExports.jsx(Button,{type:"submit",size:"lg",className:`
-                w-full font-medium
-                bg-[#e7c79a] text-[#2b2b2b]
-                hover:bg-[#d8b789]
-                hover:shadow-[0_0_12px_rgba(231,199,154,0.45)]
-                transition-all
-                hover:-translate-y-[3px]
-                hover:scale-[1.03]
-              `,children:s==="loading"?"Sending...":s==="sent"?"Message Sent!":"Send Message"}),s==="sent"&&jsxRuntimeExports.jsx("p",{className:"text-green-400 mt-2",children:"Your message has been sent! 🎉"}),s==="error"&&jsxRuntimeExports.jsx("p",{className:"text-red-400 mt-2",children:"Something went wrong. Please try again."})]}),jsxRuntimeExports.jsxs("div",{className:"flex justify-center gap-4",children:[jsxRuntimeExports.jsx(Button,{variant:"outline",size:"icon",className:"border-border icon-btn hover:bg-primary/10 transition-all",onClick:()=>window.open("https://github.com/aliasana","_blank"),children:jsxRuntimeExports.jsx(Github,{className:"w-5 h-5 icon-hover"})}),jsxRuntimeExports.jsx(Button,{variant:"outline",size:"icon",className:"border-border icon-btn hover:bg-primary/10 transition-all",onClick:()=>window.open("https://linkedin.com/in/sana-alia-b68147250","_blank"),children:jsxRuntimeExports.jsx(Linkedin,{className:"w-5 h-5 icon-hover"})})]})]})]})})},Footer=()=>jsxRuntimeExports.jsx("footer",{className:"py-8 border-t border-border/50",children:jsxRuntimeExports.jsx("div",{className:"container mx-auto px-4",children:jsxRuntimeExports.jsx("div",{className:"text-center text-muted-foreground",children:jsxRuntimeExports.jsx("p",{className:"mb-2",children:"© 2025 Sana Alia. All rights reserved."})})})}),SanaChatbot=()=>{const[s,e]=reactExports.useState(!1),[a,c]=reactExports.useState([{from:"bot",text:"Hi, I’m Sana’s mini chatbot 👋 Ask me about her skills, experience, or projects!"}]),[h,d]=reactExports.useState(""),g=()=>{const $=h.trim();if(!$)return;const _=[...a,{from:"user",text:$}],_e=$.toLowerCase();let et="Apologies! I’m not equipped to respond to that.🙂",nt=!1;_e.includes("skills")?et="Sana’s core skills include Data Analysis, Automation, Process Optimization, and Platform Governance.":_e.includes("experience")||_e.includes("cibc")?(et=`
+        `}),jsxRuntimeExports.jsxs("div",{className:"max-w-2xl mx-auto text-center",children:[jsxRuntimeExports.jsx("h2",{className:"text-4xl font-bold mb-6",children:"Get In Touch"}),jsxRuntimeExports.jsx("p",{className:"text-lg text-muted-foreground mb-8",children:"Let’s connect! Whether it’s a new role, a project collaboration, or just a friendly hello, I’m always happy to hear from you."}),jsxRuntimeExports.jsxs("form",{onSubmit:a,className:`
+          space-y-4 
+          w-full 
+          max-w-sm 
+          sm:max-w-md 
+          md:max-w-lg 
+          mx-auto mb-10
+        `,children:[jsxRuntimeExports.jsx("input",{type:"text",name:"name",required:!0,placeholder:"Your Name",className:`
+            w-full p-2 sm:p-3 rounded-md
+            bg-[#2b2b2b] text-white
+            border border-gray-600
+            focus:border-[#e7c79a]
+            focus:ring-2 focus:ring-[#e7c79a]/40
+            transition-all outline-none
+          `}),jsxRuntimeExports.jsx("input",{type:"email",name:"email",required:!0,placeholder:"Your Email",className:`
+            w-full p-2 sm:p-3 rounded-md
+            bg-[#2b2b2b] text-white
+            border border-gray-600
+            focus:border-[#e7c79a]
+            focus:ring-2 focus:ring-[#e7c79a]/40
+            transition-all outline-none
+          `}),jsxRuntimeExports.jsx("textarea",{name:"message",rows:5,required:!0,placeholder:"Your Message",className:`
+            w-full p-2 sm:p-3 rounded-md
+            bg-[#2b2b2b] text-white
+            border border-gray-600
+            focus:border-[#e7c79a]
+            focus:ring-2 focus:ring-[#e7c79a]/40
+            transition-all outline-none
+          `}),jsxRuntimeExports.jsx(Button,{type:"submit",size:"lg",className:`
+            w-full font-medium
+            bg-[#e7c79a] text-[#2b2b2b]
+            hover:bg-[#d8b789]
+            hover:shadow-[0_0_12px_rgba(231,199,154,0.45)]
+            transition-all
+            hover:-translate-y-[3px]
+            hover:scale-[1.03]
+          `,children:s==="loading"?"Sending...":s==="sent"?"Message Sent!":"Send Message"})]}),jsxRuntimeExports.jsxs("div",{className:"flex justify-center gap-4",children:[jsxRuntimeExports.jsx(Button,{variant:"outline",size:"icon",className:"border-border icon-btn hover:bg-primary/10 transition-all",onClick:()=>window.open("https://github.com/aliasana","_blank"),children:jsxRuntimeExports.jsx(Github,{className:"w-5 h-5 icon-hover"})}),jsxRuntimeExports.jsx(Button,{variant:"outline",size:"icon",className:"border-border icon-btn hover:bg-primary/10 transition-all",onClick:()=>window.open("https://linkedin.com/in/sana-alia-b68147250","_blank"),children:jsxRuntimeExports.jsx(Linkedin,{className:"w-5 h-5 icon-hover"})})]})]})]})})},Footer=()=>jsxRuntimeExports.jsx("footer",{className:"py-8 border-t border-border/50",children:jsxRuntimeExports.jsx("div",{className:"container mx-auto px-4",children:jsxRuntimeExports.jsx("div",{className:"text-center text-muted-foreground",children:jsxRuntimeExports.jsx("p",{className:"mb-2",children:"© 2025 Sana Alia. All rights reserved."})})})}),SanaChatbot=()=>{const[s,e]=reactExports.useState(!1),[a,c]=reactExports.useState([{from:"bot",text:"Hi, I’m Sana’s mini chatbot 👋 Ask me about her skills, experience, or projects!"}]),[h,d]=reactExports.useState(""),g=()=>{const $=h.trim();if(!$)return;const _=[...a,{from:"user",text:$}],_e=$.toLowerCase();let et="Apologies! I’m not equipped to respond to that.🙂",nt=!1;_e.includes("skills")?et="Sana’s core skills include Data Analysis, Automation, Process Optimization, and Platform Governance.":_e.includes("experience")||_e.includes("cibc")?(et=`
   You can view Sana’s complete work experience and career journey on her
   <a href="https://www.linkedin.com/in/sana-alia-b68147250"
      target="_blank"

@@ -61,88 +61,82 @@ const Contact = () => {
 
           {/* CONTACT FORM */}
           <form
-            onSubmit={handleSubmit}
-            className="space-y-6 max-w-lg mx-auto mb-10"
-          >
-            {/* NAME FIELD */}
-            <input
-              type="text"
-              name="name"
-              required
-              placeholder="Your Name"
-              className="
-                w-full p-3 rounded-md
-                bg-[#2b2b2b] text-white
-                border border-gray-600
-                focus:border-[#e7c79a]
-                focus:ring-2 focus:ring-[#e7c79a]/40
-                transition-all outline-none
-              "
-            />
+        onSubmit={handleSubmit}
+        className="
+          space-y-4 
+          w-full 
+          max-w-sm 
+          sm:max-w-md 
+          md:max-w-lg 
+          mx-auto mb-10
+        "
+      >
+        <input
+          type="text"
+          name="name"
+          required
+          placeholder="Your Name"
+          className="
+            w-full p-2 sm:p-3 rounded-md
+            bg-[#2b2b2b] text-white
+            border border-gray-600
+            focus:border-[#e7c79a]
+            focus:ring-2 focus:ring-[#e7c79a]/40
+            transition-all outline-none
+          "
+        />
 
-            {/* EMAIL FIELD */}
-            <input
-              type="email"
-              name="email"
-              required
-              placeholder="Your Email"
-              className="
-                w-full p-3 rounded-md
-                bg-[#2b2b2b] text-white
-                border border-gray-600
-                focus:border-[#e7c79a]
-                focus:ring-2 focus:ring-[#e7c79a]/40
-                transition-all outline-none
-              "
-            />
+        <input
+          type="email"
+          name="email"
+          required
+          placeholder="Your Email"
+          className="
+            w-full p-2 sm:p-3 rounded-md
+            bg-[#2b2b2b] text-white
+            border border-gray-600
+            focus:border-[#e7c79a]
+            focus:ring-2 focus:ring-[#e7c79a]/40
+            transition-all outline-none
+          "
+        />
 
-            {/* MESSAGE FIELD */}
-            <textarea
-              name="message"
-              rows={5}
-              required
-              placeholder="Your Message"
-              className="
-                w-full p-3 rounded-md
-                bg-[#2b2b2b] text-white
-                border border-gray-600
-                focus:border-[#e7c79a]
-                focus:ring-2 focus:ring-[#e7c79a]/40
-                transition-all outline-none
-              "
-            />
+        <textarea
+          name="message"
+          rows={5}
+          required
+          placeholder="Your Message"
+          className="
+            w-full p-2 sm:p-3 rounded-md
+            bg-[#2b2b2b] text-white
+            border border-gray-600
+            focus:border-[#e7c79a]
+            focus:ring-2 focus:ring-[#e7c79a]/40
+            transition-all outline-none
+          "
+        />
 
-            {/* SUBMIT BUTTON */}
-            <Button
-              type="submit"
-              size="lg"
-              className="
-                w-full font-medium
-                bg-[#e7c79a] text-[#2b2b2b]
-                hover:bg-[#d8b789]
-                hover:shadow-[0_0_12px_rgba(231,199,154,0.45)]
-                transition-all
-                hover:-translate-y-[3px]
-                hover:scale-[1.03]
-              "
-            >
-              {status === "loading"
-                ? "Sending..."
-                : status === "sent"
-                ? "Message Sent!"
-                : "Send Message"}
-            </Button>
+        <Button
+          type="submit"
+          size="lg"
+          className="
+            w-full font-medium
+            bg-[#e7c79a] text-[#2b2b2b]
+            hover:bg-[#d8b789]
+            hover:shadow-[0_0_12px_rgba(231,199,154,0.45)]
+            transition-all
+            hover:-translate-y-[3px]
+            hover:scale-[1.03]
+          "
+        >
+          {status === "loading"
+            ? "Sending..."
+            : status === "sent"
+            ? "Message Sent!"
+            : "Send Message"}
+        </Button>
+      </form>
 
-            {/* STATUS MESSAGES */}
-            {status === "sent" && (
-              <p className="text-green-400 mt-2">Your message has been sent! 🎉</p>
-            )}
-            {status === "error" && (
-              <p className="text-red-400 mt-2">
-                Something went wrong. Please try again.
-              </p>
-            )}
-          </form>
 
           {/* SOCIAL ICON BUTTONS */}
           <div className="flex justify-center gap-4">
