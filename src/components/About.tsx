@@ -142,7 +142,7 @@ console.log("Hello from the mini terminal!");`
                 </p>
                 <p>
                 I’m passionate about building efficient, reliable, and secure systems. I enjoy turning complex problems into simple, thoughtful solutions especially when they help improve processes, strengthen security, or enhance the way teams interact with technology. When I&apos;m not
-                  coding or exploring new tech trends, you&apos;ll find me playing badminton, reading,
+                  coding or working with data, you&apos;ll find me playing badminton, reading,
                   going for drives, or catching up on the latest innovations shaping our digital world.
                 </p>
               </div>
