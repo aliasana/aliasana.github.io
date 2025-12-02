@@ -2,14 +2,15 @@ import { useState, MouseEvent } from "react";
 import CodeMirror from "@uiw/react-codemirror";
 import { vscodeDark } from "@uiw/codemirror-theme-vscode";
 import { javascript } from "@codemirror/lang-javascript";
+import { EditorView } from "@codemirror/view";
 
 const About = () => {
   const [tilt, setTilt] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
   const [code, setCode] = useState<string>(
-    `const aboutMe = {
+`const aboutMe = {
   name: "Sana Alia",
-  role: "CS Student @ UofT ",
-  loves: ["Data", "Automation", "Platform Governance"],
+  role: "Computer Science Student @ UofT",
+  loves: ["Data", "Automation", "Analytics"],
 };
 
 console.log("Hello from the mini terminal!");`
@@ -20,19 +21,16 @@ console.log("Hello from the mini terminal!");`
   const handleRun = () => {
     try {
       const logBuffer: string[] = [];
-
-      // capture console.log
       const originalLog = console.log;
+
       console.log = (...args) => {
         logBuffer.push(args.join(" "));
         originalLog(...args);
       };
 
-      // execute user code safely
       // eslint-disable-next-line no-eval
       eval(code);
 
-      // restore console.log
       console.log = originalLog;
 
       setTerminal(logBuffer.join("\n") || "✓ Code executed with no output.");
@@ -42,17 +40,12 @@ console.log("Hello from the mini terminal!");`
   };
 
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
-    const card = e.currentTarget;
-    const rect = card.getBoundingClientRect();
-
+    const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
-    const midX = rect.width / 2;
-    const midY = rect.height / 2;
-
-    const rotateY = ((x - midX) / midX) * 10;
-    const rotateX = -((y - midY) / midY) * 10;
+    const rotateY = ((x - rect.width / 2) / (rect.width / 2)) * 10;
+    const rotateX = -((y - rect.height / 2) / (rect.height / 2)) * 10;
 
     setTilt({ x: rotateX, y: rotateY });
   };
@@ -60,10 +53,7 @@ console.log("Hello from the mini terminal!");`
   const handleMouseLeave = () => setTilt({ x: 0, y: 0 });
 
   return (
-    <section
-      id="about"
-      className="py-20 bg-secondary/30 relative overflow-hidden"
-    >
+    <section id="about" className="py-20 bg-secondary/30 relative overflow-hidden">
       <div className="container mx-auto px-4 max-w-6xl">
 
         {/* Heading */}
@@ -71,46 +61,60 @@ console.log("Hello from the mini terminal!");`
           <h2 className="text-4xl font-bold mb-3">About Me</h2>
         </div>
 
-        {/* Layout: editor (left) + about card (right) */}
+        {/* Layout */}
         <div className="grid gap-8 md:grid-cols-2 items-start">
 
-          {/* Code Editor + Run Button + Terminal */}
-          <div className="bg-background/80 rounded-2xl border border-border/40 shadow-lg overflow-hidden">
+          {/* Code Editor + Terminal */}
+          <div className="bg-background/80 rounded-2xl border border-border/40 shadow-lg overflow-hidden w-full max-w-full sm:max-w-md md:max-w-full">
 
-            {/* Code Editor */}
             <CodeMirror
               value={code}
-              height="260px"
+              height="220px"
               theme={vscodeDark}
-              extensions={[javascript()]}
+              extensions={[
+                javascript({ jsx: true }),
+                EditorView.lineWrapping
+              ]}
               onChange={(value) => setCode(value)}
+              basicSetup={{
+                lineNumbers: false,
+                foldGutter: false,
+                highlightActiveLine: false,
+              }}
+              className="text-xs sm:text-sm leading-tight"
+              style={{
+                fontSize: "12px",
+              }}
             />
 
             {/* Run Button */}
             <div className="p-3 border-t border-border/40 flex justify-end">
-            <button
-  onClick={handleRun}
-  className="
-    px-4 py-1.5 rounded-lg text-sm font-medium
-    transition-all shadow-md
-    bg-[#e7c79a]           /* beige background */
-    text-[#2b2b2b]         /* dark grey text */
-    hover:bg-[#d8b789]     /* slightly darker beige */
-    hover:text-[#2b2b2b]
-    hover:shadow-[0_0_12px_rgba(231,199,154,0.45)]
-    hover:-translate-y-[2px]
-    hover:scale-[1.03]
-  "
->
-  Run ▶
-</button>
-
-
-
+              <button
+                onClick={handleRun}
+                className="
+                  px-3 py-1 text-xs 
+                  sm:px-4 sm:py-1.5 sm:text-sm
+                  rounded-lg font-medium transition-all shadow-md
+                  bg-[#e7c79a] text-[#2b2b2b]
+                  hover:bg-[#d8b789]
+                  hover:shadow-[0_0_12px_rgba(231,199,154,0.45)]
+                  hover:-translate-y-[2px]
+                  hover:scale-[1.03]
+                "
+              >
+                Run ▶
+              </button>
             </div>
 
-            {/* Terminal Output */}
-            <div className="bg-black text-green-400 text-xs p-3 h-32 overflow-auto font-mono border-t border-border/40">
+            {/* Terminal */}
+            <div className="
+              bg-black text-green-400 
+              text-[10px] sm:text-xs 
+              p-2 sm:p-3 
+              h-28 sm:h-32 
+              overflow-auto font-mono 
+              border-t border-border/40
+            ">
               {terminal || "💻 Terminal ready…"}
             </div>
           </div>
@@ -131,25 +135,31 @@ console.log("Hello from the mini terminal!");`
               }}
             >
               <div className="space-y-4 text-muted-foreground text-base md:text-lg leading-relaxed">
+
                 <p>
                   I&apos;m a Computer Science student who loves working with data — whether it&apos;s
-                  analyzing, optimizing, protecting or transforming it into something useful. I&apos;m passionate
-                  about{" "}
+                  analyzing, optimizing, protecting, or transforming it into something useful.
+                  I&apos;m passionate about{" "}
                   <span className="text-foreground font-semibold">
                     data analysis, automation, digital transformation, and technology strategy
-                  </span>
-                  .
+                  </span>.
                 </p>
+
                 <p>
-                I’m passionate about building efficient, reliable, and secure systems. I enjoy turning complex problems into simple, thoughtful solutions especially when they help improve processes, strengthen security, or enhance the way teams interact with technology. When I&apos;m not
-                  coding or working with data, you&apos;ll find me playing badminton, reading,
-                  going for drives, or catching up on the latest innovations shaping our digital world.
+                  I enjoy building efficient, reliable, and secure systems. I love turning complex
+                  problems into thoughtful, simple solutions that improve processes, strengthen governance,
+                  or enhance how teams interact with technology.
                 </p>
+
+                <p>
+                  When I&apos;m not coding or working with data, you&apos;ll find me playing badminton,
+                  reading, going for drives, or exploring the latest innovations in tech.
+                </p>
+
               </div>
-
-
             </div>
           </div>
+
         </div>
 
       </div>
