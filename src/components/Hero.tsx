@@ -219,7 +219,8 @@ const Hero = () => {
         }}
       />
 
-      <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/50 to-background z-0" />
+<div className="absolute inset-0 bg-gradient-to-b from-background/15 via-background/25 to-background/40 z-0" />
+
 
       {/* Content */}
       <div className="w-full px-4 md:px-8 z-10 text-center pt-24 md:pt-32 flex flex-col items-center">

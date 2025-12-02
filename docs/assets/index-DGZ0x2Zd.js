@@ -290,7 +290,7 @@ Error generating stack: `+d.message+`
   transform: scale(0.95);
 }
 
-      `}),jsxRuntimeExports.jsx("div",{className:"absolute inset-0 z-0",style:{backgroundImage:`url(${heroBg})`,backgroundSize:"cover",backgroundPosition:"center"}}),jsxRuntimeExports.jsx("div",{className:"absolute inset-0 bg-gradient-to-b from-background/40 via-background/50 to-background z-0"}),jsxRuntimeExports.jsxs("div",{className:"w-full px-4 md:px-8 z-10 text-center pt-24 md:pt-32 flex flex-col items-center",children:[jsxRuntimeExports.jsx("h1",{className:`
+      `}),jsxRuntimeExports.jsx("div",{className:"absolute inset-0 z-0",style:{backgroundImage:`url(${heroBg})`,backgroundSize:"cover",backgroundPosition:"center"}}),jsxRuntimeExports.jsx("div",{className:"absolute inset-0 bg-gradient-to-b from-background/15 via-background/25 to-background/40 z-0"}),jsxRuntimeExports.jsxs("div",{className:"w-full px-4 md:px-8 z-10 text-center pt-24 md:pt-32 flex flex-col items-center",children:[jsxRuntimeExports.jsx("h1",{className:`
           text-5xl md:text-7xl font-extrabold tracking-tight mb-6 
           bg-clip-text text-transparent 
           bg-gradient-to-r from-primary via-[#e7c79a] to-accent
