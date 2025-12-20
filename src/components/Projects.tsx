@@ -30,20 +30,35 @@ const projects = [
     codeLink: "https://github.com/aliasana/FuelUp",
   },
   {
+    title: "VelocityPoints - Loyalty Points Management System - Web Application",
+    description:
+      "Built a full-stack loyalty points management platform with a Vite + React frontend and an Express + Prisma backend, deployed on Railway with a managed PostgreSQL database and an API base URL consumed by the SPA.",
+    tags: [
+      "React",
+      "Vite",
+      "TypeScript",
+      "Node.js",
+      "Express",
+      "Prisma",
+      "PostgreSQL",
+      "Railway",
+    ],
+    codeLink: "https://github.com/aliasana/VelocityPoints?tab=readme-ov-file",
+    liveLink: "https://velocitypointsfrontend-production.up.railway.app/",
+  },
+  {
     title: "System Monitoring Tool",
     description:
       "Designed and implemented a real-time system utilization analysis tool leveraging concurrent command handling and signal interception on Linux-based systems.",
     tags: ["C", "Linux", "Concurrency", "Signals"],
     codeLink: "https://github.com/aliasana/System-Monitoring-Tool-Concurrency-Signals",
   },
-  
 ];
 
 const Projects = () => {
   return (
     <section id="projects" className="py-20 bg-secondary/30">
       <div className="container mx-auto px-4">
-
         <style>{`
           /* Beige glow for tags */
           .tag-glow {
@@ -115,11 +130,7 @@ const Projects = () => {
                     <Button size="sm" className="flex-1 btn-grey" asChild>
                       <a href={project.codeLink} target="_blank" rel="noopener noreferrer">
                         <Github className="w-4 h-4 mr-2" />
-                        {
-                          project.title === "FuelUp - Gas Price Matching App"
-                            ? "Prototype"
-                            : "Code"
-                        }
+                        {project.title === "FuelUp - Gas Price Matching App" ? "Prototype" : "Code"}
                       </a>
                     </Button>
                   )}
