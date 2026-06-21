@@ -173,13 +173,13 @@ console.log("Hello from the mini terminal!");`
                   analyzing, optimizing, protecting, or transforming it into something useful.
                   I'm passionate about{" "}
                   <span className="text-foreground font-semibold">
-                    data analysis, automation, digital transformation, and technology strategy
+                    automation, digital transformation, and technology strategy
                   </span>.
                 </p>
 
                 <p>
                   I enjoy building efficient, reliable, and secure systems. I love turning complex
-                  problems into simple, thoughtful solutions that improve processes, strengthen governance,
+                  problems into simple, thoughtful solutions that improve processes, strengthen system reliability,
                   or enhance how teams interact with technology.
                 </p>
 

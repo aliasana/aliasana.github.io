@@ -250,12 +250,11 @@ const Hero = () => {
   <span className="absolute inset-0 flex items-center justify-center">
     <TypewriterRotatingText
       items={[
-        "Data Analysis",
-        "Automation",
+        "Artificial Intelligence",
+        "Quality Engineering",
+        "Test Automation",
         "Process Optimization",
         "Data Architecture",
-        "Platform Governance",
-        "Workflow Automation",
       ]}
       typingSpeed={80}
       deletingSpeed={40}
